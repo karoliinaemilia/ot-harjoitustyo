@@ -1,5 +1,3 @@
-muutos suoraan GitHubista
-
 commit 76d81298dbff77f6f326961273b878c3948cb8e4
 Author: Karoliina Koivu <karoliinakoivu@gmail.com>
 Date:   Wed Oct 24 00:04:06 2018 +0300
