@@ -1,5 +1,11 @@
 # Ohjelmistotekniikka, harjoitustyö
 
+### Dokumentaatio
+
+[Vaatimusmäärittely](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito]()
+
 ### Tehtävät
 
 #### Viikko 1
