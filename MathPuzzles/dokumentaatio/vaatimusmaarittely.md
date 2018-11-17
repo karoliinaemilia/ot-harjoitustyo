@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen avulla käyttäjjä voi ainakin harjoitella aritmetiikkaa ehkä myös ratkaista matemaattisia ongelmia ja pulmia.
+Sovelluksen avulla käyttäjä voi ainakin harjoitella aritmetiikkaa ja ehkä myös ratkaista matemaattisia ongelmia ja pulmia.
 
 ## Käyttäjät
 
@@ -10,9 +10,13 @@ Sovelluksella on yksi käyttäjärooli eli _normaali käyttäjä_.
 
 ## Perusversion tarjoama toiminnallisuus
 
-- kun käyttäjä voi kirjautua sovellukseen tai uusi käyttäjä voi luoda tunnuksen
+- käyttäjä voi kirjautua sovellukseen tai uusi käyttäjä voi luoda tunnukset
 - kirjautunut käyttäjä voi valita mitä haluaa harjoitella
+    - yhteenlaskuja ja miinuslaskuja pienillä numeroilla
+    - yhteenlaskuja ja miinuslaskuja isommilla numeroilla
+    - kertolaskuja ja jakolaskuja
 - valinnan jälkeen käyttäjä voi aloittaa harjoittelun
+    - sovellus antaa laskun ja käyttäjä kirjoittaa tai valitsee oikean vastauksen
 
 ## Jatkokehitysideoita
 
