@@ -1,19 +1,27 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Math Puzzles
 
-### Dokumentaatio
+Sovelluksen avulla käyttäjä voi harjoitella aritmetiikkaa.
+
+## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/tuntikirjanpito.md)
 
-### Tehtävät
+## Komentorivitoiminnot
 
-#### Viikko 1
+### Testaus
 
-[gitlog.txt](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+Testit suoritetaan komennolla
 
-[komentorivi.txt](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+```
+mvn test
+```
 
-### Viikko 2
+Testikattavuusraportti luodaan komennolla
 
-[testikattavuus](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.png)
+```
+mvn jacoco:report
+```
+
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
