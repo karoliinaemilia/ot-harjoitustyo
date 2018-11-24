@@ -1,14 +1,16 @@
-package mathpuzzles.database;
+package mathpuzzles.user;
 
+import mathpuzzles.database.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import mathpuzzles.domain.User;
+import mathpuzzles.database.Database;
+import mathpuzzles.user.User;
 
-public class UserDao implements Dao<User, Integer> {
+public class UserDao implements Dao<User, String> {
 
     private Database database;
 
@@ -17,32 +19,7 @@ public class UserDao implements Dao<User, Integer> {
     }
 
     @Override
-    public User findOne(Integer key) throws SQLException {
-        Connection conn = database.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE id = ?");
-        stmt.setObject(1, key);
-
-        ResultSet rs = stmt.executeQuery();
-        boolean hasOne = rs.next();
-        if (!hasOne) {
-            return null;
-        }
-
-        Integer id = rs.getInt("id");
-        String name = rs.getString("name");
-        String username = rs.getString("username");
-        String password = rs.getString("password");
-
-        User u = new User(id, name, username, password);
-
-        rs.close();
-        stmt.close();
-        conn.close();
-
-        return u;
-    }
-
-    public User findByUsername(String key) throws SQLException {
+    public User findOne(String key) throws SQLException {
         Connection conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
         stmt.setObject(1, key);
@@ -143,7 +120,7 @@ public class UserDao implements Dao<User, Integer> {
     }
     
     @Override
-    public void delete(Integer key) throws SQLException {
+    public void delete(String key) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

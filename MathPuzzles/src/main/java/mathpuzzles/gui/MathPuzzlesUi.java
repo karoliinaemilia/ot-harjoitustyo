@@ -1,4 +1,4 @@
-package mathpuzzles.ui;
+package mathpuzzles.gui;
 
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -19,8 +19,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import mathpuzzles.database.Database;
-import mathpuzzles.database.UserDao;
-import mathpuzzles.domain.Service;
+import mathpuzzles.user.UserDao;
+import mathpuzzles.logics.Service;
 
 public class MathPuzzlesUi extends Application {
     
@@ -28,7 +28,9 @@ public class MathPuzzlesUi extends Application {
     private Scene loginScene;
     private Scene menuScene;
     private Scene newUserScene;
+    private Scene problemScene;
     private Service service;
+    private Label title = new Label("");
     
     @Override
     public void init() throws Exception {
@@ -66,6 +68,7 @@ public class MathPuzzlesUi extends Application {
                     primaryStage.setScene(menuScene);
                     usernameInput.setText("");
                     passwordInput.setText("");
+                    title.setText("Welcome " + service.getCurrentUser().getName());
                 } else {
                     loginMessage.setText("username or password incorrect");
                     loginMessage.setTextFill(Color.RED);
@@ -173,18 +176,59 @@ public class MathPuzzlesUi extends Application {
         Button logoutButton = new Button("logout");      
         menuPane.getChildren().addAll(menuLabel, menuSpacer, logoutButton);
         
-        HBox centerPane = new HBox(10);
-        Label title = new Label("");
-        if (service.getLoggedIn() != null) {
-            title = new Label("Welcome " + service.getLoggedIn().getName());
-        }
+        logoutButton.setOnAction(e -> {
+            primaryStage.setScene(loginScene);
+            service.logout();
+        });
         
-        centerPane.getChildren().add(title);
+        HBox centerPane = new HBox(10);
+        
+        Button getProblem = new Button("get a problem");
+        
+        getProblem.setOnAction(e -> {
+            primaryStage.setScene(problemScene);
+        });
+        
+        centerPane.getChildren().addAll(title, getProblem);
         
         mainPane.getChildren().addAll(menuPane, centerPane);
         
         
-        // 
+        // problem scene 
+        
+        HBox centerPaneProblem = new HBox(10);
+        Label problemLabel = new Label(service.makeProblem());
+        TextField problemInput = new TextField();
+        
+        Button submit = new Button("submit answer");
+        
+        Label correct = new Label("");
+        
+        
+        
+        Button nextProblem = new Button("next");
+        
+        nextProblem.setOnAction(e -> {
+            problemLabel.setText(service.makeProblem());
+            correct.setText("");
+        });
+        
+        submit.setOnAction(e -> {
+            String answer = problemInput.getText();
+            problemInput.setText("");
+            if (service.checkAnswer(answer)) {
+                correct.setText("correct!!");
+                
+            } else {
+                correct.setText("wrong the correct answer is " + service.getAnswer() );
+            }
+        });
+        
+        centerPaneProblem.getChildren().addAll(problemLabel, problemInput, submit, correct, nextProblem);
+        
+        problemScene = new Scene(centerPaneProblem, 700, 300);
+        
+        //
         
         primaryStage.setTitle("Math Puzzles");
         primaryStage.setScene(loginScene);

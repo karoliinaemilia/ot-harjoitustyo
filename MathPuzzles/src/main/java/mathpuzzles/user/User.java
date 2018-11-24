@@ -1,5 +1,5 @@
 
-package mathpuzzles.domain;
+package mathpuzzles.user;
 
 public class User {
     
@@ -19,6 +19,10 @@ public class User {
         this.name = name;
         this.username = username;
         this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {
