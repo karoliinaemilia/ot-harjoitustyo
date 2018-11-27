@@ -1,4 +1,4 @@
-package mathpuzzles.database;
+package mathpuzzles.dao;
 
 import java.sql.SQLException;
 import java.util.List;

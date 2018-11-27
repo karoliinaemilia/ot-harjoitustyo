@@ -1,6 +1,5 @@
-package mathpuzzles.user;
+package mathpuzzles.dao;
 
-import mathpuzzles.database.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import mathpuzzles.database.Database;
+import mathpuzzles.user.User;
 import mathpuzzles.user.User;
 
 public class UserDao implements Dao<User, String> {

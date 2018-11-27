@@ -19,8 +19,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import mathpuzzles.database.Database;
-import mathpuzzles.user.UserDao;
-import mathpuzzles.logics.Service;
+import mathpuzzles.dao.UserDao;
+import mathpuzzles.logics.Logic;
 
 public class MathPuzzlesUi extends Application {
     
@@ -29,7 +29,7 @@ public class MathPuzzlesUi extends Application {
     private Scene menuScene;
     private Scene newUserScene;
     private Scene problemScene;
-    private Service service;
+    private Logic logic;
     private Label title = new Label("");
     
     @Override
@@ -37,11 +37,12 @@ public class MathPuzzlesUi extends Application {
         Database database = new Database("jdbc:sqlite:mathpuzzles.db");
         
         UserDao userDao = new UserDao(database);
-        service = new Service(userDao);
+        logic = new Logic(userDao);
     }
 
     @Override
     public void start(Stage primaryStage) {
+        
         
         //login scene
         VBox loginPane = new VBox(10);
@@ -63,12 +64,12 @@ public class MathPuzzlesUi extends Application {
             String password = passwordInput.getText();
             menuLabel.setText( username + " logged in");
             try {
-                if (service.login(username, password)) {
+                if (logic.login(username, password)) {
                     loginMessage.setText("");
                     primaryStage.setScene(menuScene);
                     usernameInput.setText("");
                     passwordInput.setText("");
-                    title.setText("Welcome " + service.getCurrentUser().getName());
+                    title.setText("Welcome " + logic.getCurrentUser().getName());
                 } else {
                     loginMessage.setText("username or password incorrect");
                     loginMessage.setTextFill(Color.RED);
@@ -145,7 +146,7 @@ public class MathPuzzlesUi extends Application {
                 userCreationMessage.setText("password and password confirmation do not match");
                 userCreationMessage.setTextFill(Color.RED);
             } else try {
-                if ( service.createUser(name, username, password) ){
+                if ( logic.createUser(name, username, password) ){
                     userCreationMessage.setText("");
                     loginMessage.setText("new user created");
                     loginMessage.setTextFill(Color.GREEN);
@@ -178,7 +179,7 @@ public class MathPuzzlesUi extends Application {
         
         logoutButton.setOnAction(e -> {
             primaryStage.setScene(loginScene);
-            service.logout();
+            logic.logout();
         });
         
         HBox centerPane = new HBox(10);
@@ -197,7 +198,7 @@ public class MathPuzzlesUi extends Application {
         // problem scene 
         
         HBox centerPaneProblem = new HBox(10);
-        Label problemLabel = new Label(service.makeProblem());
+        Label problemLabel = new Label(logic.makeProblem());
         TextField problemInput = new TextField();
         
         Button submit = new Button("submit answer");
@@ -209,22 +210,28 @@ public class MathPuzzlesUi extends Application {
         Button nextProblem = new Button("next");
         
         nextProblem.setOnAction(e -> {
-            problemLabel.setText(service.makeProblem());
+            problemLabel.setText(logic.makeProblem());
             correct.setText("");
         });
         
         submit.setOnAction(e -> {
             String answer = problemInput.getText();
             problemInput.setText("");
-            if (service.checkAnswer(answer)) {
+            if (logic.checkAnswer(answer)) {
                 correct.setText("correct!!");
                 
             } else {
-                correct.setText("wrong the correct answer is " + service.getAnswer() );
+                correct.setText("wrong the correct answer is " + logic.getAnswer() );
             }
         });
         
-        centerPaneProblem.getChildren().addAll(problemLabel, problemInput, submit, correct, nextProblem);
+        Button back = new Button("back to menu");
+        
+        back.setOnAction(e -> {
+            primaryStage.setScene(menuScene);
+        });
+        
+        centerPaneProblem.getChildren().addAll(problemLabel, problemInput, submit, correct, nextProblem, back);
         
         problemScene = new Scene(centerPaneProblem, 700, 300);
         

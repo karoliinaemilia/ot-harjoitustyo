@@ -4,7 +4,7 @@ package mathpuzzles.logics;
 import java.sql.SQLException;
 import mathpuzzles.problem.Problem;
 import mathpuzzles.user.User;
-import mathpuzzles.user.UserDao;
+import mathpuzzles.dao.UserDao;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,18 +13,18 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class ServiceTest {
+public class LogicTest {
     
     UserDao userDao;
     User user;
     Problem problem;
-    Service service;
+    Logic logic;
     
     @Before
     public void setUp() {
         user = new User("Test", "tester", "secre1");
         userDao = mock(UserDao.class);
-        service = new Service(userDao);
+        logic = new Logic(userDao);
         problem = mock(Problem.class);
     }
     
@@ -34,7 +34,7 @@ public class ServiceTest {
         
         when(userDao.save(anyObject())).thenReturn(anyObject());
         
-        assertEquals(true, service.createUser("Test2", "tester2", "secret2"));
+        assertEquals(true, logic.createUser("Test2", "tester2", "secret2"));
         
         verify(userDao, times(1)).findOne("tester2");
         verify(userDao, times(1)).save(anyObject());
@@ -45,7 +45,7 @@ public class ServiceTest {
         when(userDao.findOne("tester")).thenReturn(user);
         when(userDao.save(user)).thenReturn(user);
         
-        assertEquals(false, service.createUser("Test", "tester", "secret"));
+        assertEquals(false, logic.createUser("Test", "tester", "secret"));
         
         verify(userDao, times(1)).findOne("tester");
         verify(userDao, times(0)).save(user);
@@ -54,15 +54,15 @@ public class ServiceTest {
     
     @Test
     public void ifNoOneISLoggedInCurrentUserIsNull() {
-        assertEquals(null, service.getCurrentUser());
+        assertEquals(null, logic.getCurrentUser());
     }
     
     @Test
     public void loginWorksIfUserExists() throws SQLException {
         when(userDao.findByUsernameAndPassword("tester", "secret1")).thenReturn(user);
         
-        assertEquals(true, service.login("tester", "secret1"));
-        assertEquals(user, service.getCurrentUser());
+        assertEquals(true, logic.login("tester", "secret1"));
+        assertEquals(user, logic.getCurrentUser());
         
         verify(userDao, times(1)).findByUsernameAndPassword("tester", "secret1");
     }
@@ -71,8 +71,8 @@ public class ServiceTest {
     public void loginDoesntWorkWithNonexistentUsername() throws SQLException {
         when(userDao.findByUsernameAndPassword("tester", "secret")).thenReturn(null);
         
-        assertEquals(false, service.login("tester", "secret1"));
-        assertEquals(null, service.getCurrentUser());
+        assertEquals(false, logic.login("tester", "secret1"));
+        assertEquals(null, logic.getCurrentUser());
     }
     
     

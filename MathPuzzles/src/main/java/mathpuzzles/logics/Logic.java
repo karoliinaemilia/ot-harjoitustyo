@@ -5,15 +5,15 @@ import mathpuzzles.user.User;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import mathpuzzles.problem.Problem;
-import mathpuzzles.user.UserDao;
+import mathpuzzles.dao.UserDao;
 
-public class Service {
+public class Logic {
     
     private UserDao userDao;
     private User currentUser;
     private Problem problem = new Problem();
     
-    public Service(UserDao userDao) {
+    public Logic(UserDao userDao) {
         this.userDao = userDao;
         this.currentUser = null;
     }
