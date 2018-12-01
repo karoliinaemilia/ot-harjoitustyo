@@ -1,6 +1,6 @@
 # Math Puzzles
 
-Sovelluksen avulla käyttäjä voi harjoitella aritmetiikkaa.
+Käyttäjä voi luoda sovellukseen käyttäjätunnuksen ja kirjauduttuaan sisään harjoitella perus aritmetiikkaa.
 
 ## Dokumentaatio
 
@@ -10,20 +10,38 @@ Sovelluksen avulla käyttäjä voi harjoitella aritmetiikkaa.
 
 [Työaikakirjanpito](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/tuntikirjanpito.md)
 
-## Komentorivitoiminnot
+### Testaaminen
 
-### Testaus
-
-Testit suoritetaan komennolla
+Testit saa suoritettua komennolla
 
 ```
 mvn test
 ```
 
-Testikattavuusraportti luodaan komennolla
+Testikattavuusraportti taas luodaan komennolla
 
 ```
 mvn jacoco:report
 ```
 
-Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+Sen voi katsoa avaamalla selaimella tiedoston _target/site/jacoco/index.html_
+
+### Jar generointi
+
+```
+mvn package
+```
+
+jar-tiedosto _MathPuzzles-1.0-SNAPSHOT.jar_ löytyy sitten hakemistosta _target_
+
+### Checkstyle
+
+Tarkistukset suoritetaan komennolla
+
+```
+ mvn jxr:jxr checkstyle:checkstyle
+```
+
+Määrittelyt löytyy tiedostosta [checkstyle.xml](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/checkstyle.xml) 
+
+Mahdolliset virheilmoitukset löytyvät avaamalla selaimella tiedosto _target/site/checkstyle.html_
