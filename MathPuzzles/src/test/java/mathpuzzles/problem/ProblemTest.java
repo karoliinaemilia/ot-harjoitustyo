@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mathpuzzles.problem;
 
 import mathpuzzles.problem.Operation;
@@ -20,7 +16,7 @@ public class ProblemTest {
 
     @Before
     public void setUp() {
-        problem = problem.generateRandomMathProblem(2, 20);
+        problem = problem.generateRandomMathProblem(2, 20, null);
     }
 
     

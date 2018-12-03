@@ -1,4 +1,4 @@
-package mathpuzzles.database;
+package mathpuzzles.dao;
 
 import java.sql.*;
 import java.util.ArrayList;

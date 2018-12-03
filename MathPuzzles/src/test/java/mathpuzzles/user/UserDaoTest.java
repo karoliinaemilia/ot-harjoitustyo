@@ -5,7 +5,7 @@ import mathpuzzles.dao.UserDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import mathpuzzles.database.Database;
+import mathpuzzles.dao.Database;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,9 +19,12 @@ public class UserDaoTest {
     UserDao userDao;
     
     @Before
-    public void setUp() {
+    public void setUp() throws SQLException {
         db = new Database("jdbc:sqlite:databaseForTests.db");
         userDao = new UserDao(db);
+        Connection conn = db.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM User;");
+        stmt.execute();
     }
     
     @Test

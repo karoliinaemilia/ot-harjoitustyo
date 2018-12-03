@@ -13,19 +13,17 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class LogicTest {
+public class UserLogicTest {
     
     UserDao userDao;
     User user;
-    Problem problem;
-    Logic logic;
+    UserLogic logic;
     
     @Before
     public void setUp() {
         user = new User("Test", "tester", "secre1");
         userDao = mock(UserDao.class);
-        logic = new Logic(userDao);
-        problem = mock(Problem.class);
+        logic = new UserLogic(userDao);
     }
     
     @Test
