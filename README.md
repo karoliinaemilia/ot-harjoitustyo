@@ -2,6 +2,10 @@
 
 Käyttäjä voi luoda sovellukseen käyttäjätunnuksen ja kirjauduttuaan sisään harjoitella perus aritmetiikkaa.
 
+## Releaset
+
+[Viikko5](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/vaatimusmaarittely.md)
