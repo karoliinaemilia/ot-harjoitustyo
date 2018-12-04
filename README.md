@@ -32,7 +32,7 @@ Sen voi katsoa avaamalla selaimella tiedoston _target/site/jacoco/index.html_
 mvn package
 ```
 
-jar-tiedosto _MathPuzzles-1.0-SNAPSHOT.jar_ löytyy sitten hakemistosta _target_
+jar-tiedosto _MathPuzzles-1.0-SNAPSHOT.jar_ löytyy sen jälkeen hakemistosta _target_
 
 ### Checkstyle
 

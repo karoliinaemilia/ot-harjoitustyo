@@ -8,4 +8,6 @@
 | 24.11 | 6 | testejä ja matikkaongelma toiminnallisuuden alku |
 | 25.11 | 1 | pakkauskaavio |
 | 27.11 | 0.5 | pakkausten muuttelua ja käyttöliittymäjuttuja |
-| yht | 12 |
+| 2.12 | 4 | lisää toiminnallisuutta |
+| 3.12 | 1 | sekvenssikaavio ja testejä
+| yht | 17 |
