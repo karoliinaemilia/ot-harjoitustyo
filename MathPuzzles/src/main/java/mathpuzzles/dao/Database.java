@@ -18,4 +18,23 @@ public class Database {
         return DriverManager.getConnection(databaseAddress);
     }
     
+    public void intializeDatabase() {
+        try {
+            Connection conn = DriverManager.getConnection(databaseAddress);
+            Statement stmt = conn.createStatement();
+            stmt.execute(createTableUser());
+        } catch (Exception r) {
+            
+        }
+    }
+    
+    private String createTableUser() {
+        return "CREATE TABLE IF NOT EXISTS"
+                + " User("
+                + " id integer PRIMARY KEY,"
+                + " name varchar(255),"
+                + " username varchar(20),"
+                + " password varchar(200));";
+    }
+    
 }
