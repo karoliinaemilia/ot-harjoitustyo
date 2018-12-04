@@ -48,7 +48,7 @@ public class MathPuzzlesUi extends Application {
     @Override
     public void init() throws Exception {
         Database database = new Database("jdbc:sqlite:mathpuzzles.db");
-
+        database.intializeDatabase();
         UserDao userDao = new UserDao(database);
         userLogic = new UserLogic(userDao);
         problemLogic = new ProblemLogic();
