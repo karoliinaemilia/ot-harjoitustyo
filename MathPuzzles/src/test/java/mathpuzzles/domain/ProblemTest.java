@@ -1,12 +1,7 @@
 
-package mathpuzzles.problem;
+package mathpuzzles.domain;
 
-import mathpuzzles.problem.Operation;
-import mathpuzzles.problem.Problem;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,9 +11,8 @@ public class ProblemTest {
 
     @Before
     public void setUp() {
-        problem = problem.generateRandomMathProblem(2, 20, null);
+        problem = ProblemGenerator.generateProblem(2, 20, null);
     }
-
     
     @Test
     public void randomProblemGetsGeneratedWithAnOperation() {

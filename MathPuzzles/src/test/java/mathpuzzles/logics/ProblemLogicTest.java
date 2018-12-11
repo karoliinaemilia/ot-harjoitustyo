@@ -1,7 +1,7 @@
 
 package mathpuzzles.logics;
 
-import mathpuzzles.problem.Operation;
+import mathpuzzles.domain.Operation;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

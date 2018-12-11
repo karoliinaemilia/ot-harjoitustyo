@@ -1,11 +1,10 @@
 package mathpuzzles.dao;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+/**
+ * Class for connecting to a database and managing it
+ */
 public class Database {
 
     private String databaseAddress;
@@ -14,11 +13,20 @@ public class Database {
         this.databaseAddress = databaseAddress;
     }
 
+    /**
+     * Tries to get a connection to the database
+     * @return Connection object 
+     * @throws SQLException if something fails at database level
+     */
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(databaseAddress);
+        
     }
     
-    public void intializeDatabase() {
+    /**
+     * Initializes the database with statement from method createTableUser()
+     */
+    public void initializeDatabase() {
         try {
             Connection conn = DriverManager.getConnection(databaseAddress);
             Statement stmt = conn.createStatement();
@@ -28,7 +36,11 @@ public class Database {
         }
     }
     
-    private String createTableUser() {
+    /**
+     * Statement for User table creation
+     * @return String for user table creation
+     */
+    public String createTableUser() {
         return "CREATE TABLE IF NOT EXISTS"
                 + " User("
                 + " id integer PRIMARY KEY,"

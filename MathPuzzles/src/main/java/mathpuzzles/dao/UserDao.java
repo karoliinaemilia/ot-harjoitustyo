@@ -6,9 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import mathpuzzles.user.User;
-import mathpuzzles.user.User;
+import mathpuzzles.domain.User;
 
+/**
+ * Implements interface Dao for database queries for the class user
+ */
 public class UserDao implements Dao<User, String> {
 
     private Database database;
@@ -18,7 +20,7 @@ public class UserDao implements Dao<User, String> {
     }
 
     @Override
-    public User findOne(String key) throws SQLException {
+    public boolean findOne(String key) throws SQLException {
         Connection conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
         stmt.setObject(1, key);
@@ -26,28 +28,28 @@ public class UserDao implements Dao<User, String> {
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();
         if (!hasOne) {
-            return null;
+            return false;
         }
-
-        Integer id = rs.getInt("id");
-        String name = rs.getString("name");
-        String username = rs.getString("username");
-        String password = rs.getString("password");
-
-        User u = new User(id, name, username, password);
-
+        
         rs.close();
         stmt.close();
         conn.close();
 
-        return u;
+        return true;
     }
     
-    public User findByUsernameAndPassword(String user, String pass) throws SQLException {
+    /**
+     * Returns the user from the database matching the given username and password.
+     * @param username The username of the user to be returned
+     * @param password The password of the user to be returned
+     * @return The user from the database matching params otherwise null
+     * @throws SQLException if something fails at database level
+     */
+    public User findByUsernameAndPassword(String username, String password) throws SQLException {
         Connection conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE username = ? AND password = ?");
-        stmt.setObject(1, user);
-        stmt.setObject(2, pass);
+        stmt.setObject(1, username);
+        stmt.setObject(2, password);
 
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();
@@ -57,8 +59,8 @@ public class UserDao implements Dao<User, String> {
 
         Integer id = rs.getInt("id");
         String name = rs.getString("name");
-        String username = rs.getString("username");
-        String password = rs.getString("password");
+        username = rs.getString("username");
+        password = rs.getString("password");
 
         User u = new User(id, name, username, password);
 
@@ -80,7 +82,7 @@ public class UserDao implements Dao<User, String> {
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
-            User user = new User(rs.getInt("id"), rs.getString("nimi"), rs.getString("username"), rs.getString("password"));
+            User user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("username"), rs.getString("password"));
             users.add(user);
         }
 
@@ -92,6 +94,7 @@ public class UserDao implements Dao<User, String> {
         return users;
     }
 
+    @Override
     public User save(User object) throws SQLException {
         
         Connection conn = database.getConnection();

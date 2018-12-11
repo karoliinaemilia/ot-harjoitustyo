@@ -1,6 +1,6 @@
-package mathpuzzles.user;
+package mathpuzzles.domain;
 
-import mathpuzzles.user.User;
+import mathpuzzles.domain.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

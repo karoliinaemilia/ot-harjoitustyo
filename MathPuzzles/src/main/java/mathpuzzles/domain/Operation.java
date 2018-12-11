@@ -1,10 +1,19 @@
-package mathpuzzles.problem;
+package mathpuzzles.domain;
 
 import java.util.Random;
 
+/**
+ * Operations that can be used
+ */
 public enum Operation {
     DIVIDE, MULTIPLY, PLUS, MINUS, POWER;
 
+    /**
+     * Calculates the result for the numbers for specific operation
+     * @param number1 One of the numbers for calculation
+     * @param number2 Other number for calculation
+     * @return result of the calculation
+     */
     public int result(int number1, int number2) {
         switch (this) {
             case DIVIDE:
@@ -21,6 +30,10 @@ public enum Operation {
         return number1 + number2;
     }
 
+    /**
+     * Returns enum type Operation as String
+     * @return String version of Operation
+     */
     public String operator() {
         switch (this) {
             case DIVIDE:

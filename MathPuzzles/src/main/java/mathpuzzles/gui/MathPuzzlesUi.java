@@ -26,8 +26,11 @@ import mathpuzzles.dao.Database;
 import mathpuzzles.dao.UserDao;
 import mathpuzzles.logics.ProblemLogic;
 import mathpuzzles.logics.UserLogic;
-import mathpuzzles.problem.Operation;
+import mathpuzzles.domain.Operation;
 
+/**
+ * Responsible for generating the graphic user interface
+ */
 public class MathPuzzlesUi extends Application {
 
     private Stage primaryStage;
@@ -48,12 +51,15 @@ public class MathPuzzlesUi extends Application {
     @Override
     public void init() throws Exception {
         Database database = new Database("jdbc:sqlite:mathpuzzles.db");
-        database.intializeDatabase();
+        database.initializeDatabase();
         UserDao userDao = new UserDao(database);
         userLogic = new UserLogic(userDao);
         problemLogic = new ProblemLogic();
     }
     
+    /**
+     * Generates a scene in which user can login
+     */
     public void setLoginScene() {
         VBox loginPane = new VBox(10);
         HBox inputPane = new HBox(10);
@@ -101,6 +107,9 @@ public class MathPuzzlesUi extends Application {
         loginScene = new Scene(loginPane, 700, 300);
     }
     
+    /**
+     * Generates a scene in which user can create login credentials
+     */
     public void setNewUserScene() {
         VBox newUserPane = new VBox(10);
 
@@ -174,6 +183,9 @@ public class MathPuzzlesUi extends Application {
         newUserScene = new Scene(newUserPane, 700, 300);
     }
     
+    /**
+     * Generates a scene in which user can choose which kind of problems to solve
+     */
     public void setMainScene() {
         VBox mainPane = new VBox(10);
 
@@ -243,6 +255,8 @@ public class MathPuzzlesUi extends Application {
             }
             
         });
+        
+        
 
         centerPane.getChildren().addAll(title);
 
@@ -252,6 +266,9 @@ public class MathPuzzlesUi extends Application {
 
     }
     
+    /** 
+     * Generates a scene in which to solve the problems
+     */
     public void setProblemScene() {
         VBox problemPane = new VBox(10);
         HBox centerPaneProblem = new HBox(10);
@@ -292,6 +309,10 @@ public class MathPuzzlesUi extends Application {
 
         problemScene = new Scene(problemPane, 700, 300);
     }
+    
+    public void setChallengePane() {
+        
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -311,6 +332,10 @@ public class MathPuzzlesUi extends Application {
         this.primaryStage.show();
     }
 
+    /**
+     * starts the application
+     * @param args command line arguments as String objects
+     */
     public static void main(String[] args) {
         launch(args);
     }

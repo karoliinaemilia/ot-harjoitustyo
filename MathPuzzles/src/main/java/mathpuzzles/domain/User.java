@@ -1,5 +1,9 @@
 
-package mathpuzzles.user;
+package mathpuzzles.domain;
+
+/**
+ * Represents the user of the application
+ */
 
 public class User {
     

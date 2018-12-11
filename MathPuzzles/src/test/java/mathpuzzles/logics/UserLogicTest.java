@@ -2,8 +2,8 @@
 package mathpuzzles.logics;
 
 import java.sql.SQLException;
-import mathpuzzles.problem.Problem;
-import mathpuzzles.user.User;
+import mathpuzzles.domain.Problem;
+import mathpuzzles.domain.User;
 import mathpuzzles.dao.UserDao;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -28,7 +28,7 @@ public class UserLogicTest {
     
     @Test
     public void newUserCanBeCreatedWithUniqueUsername() throws SQLException {
-        when(userDao.findOne("tester2")).thenReturn(null);
+        when(userDao.findOne("tester2")).thenReturn(false);
         
         when(userDao.save(anyObject())).thenReturn(anyObject());
         
@@ -40,7 +40,7 @@ public class UserLogicTest {
     
     @Test
     public void newUserIsntCreatedWithSameUsername() throws SQLException {
-        when(userDao.findOne("tester")).thenReturn(user);
+        when(userDao.findOne("tester")).thenReturn(true);
         when(userDao.save(user)).thenReturn(user);
         
         assertEquals(false, logic.createUser("Test", "tester", "secret"));
@@ -60,7 +60,7 @@ public class UserLogicTest {
         when(userDao.findByUsernameAndPassword("tester", "secret1")).thenReturn(user);
         
         assertEquals(true, logic.login("tester", "secret1"));
-        assertEquals(user, logic.getCurrentUser());
+        
         
         verify(userDao, times(1)).findByUsernameAndPassword("tester", "secret1");
     }
@@ -73,5 +73,25 @@ public class UserLogicTest {
         assertEquals(null, logic.getCurrentUser());
     }
     
+    @Test
+    public void logoutWorks() throws SQLException {
+        when(userDao.findByUsernameAndPassword("tester", "secret1")).thenReturn(user);
+        logic.login("tester", "secret1");
+        assertEquals(user, logic.getCurrentUser());
+        
+        logic.logout();
+        assertEquals(null, logic.getCurrentUser());
+    }
     
+    @Test
+    public void checkIfValidInputsReturnsRightErrorMessage() {
+        assertEquals("username or name too short", logic.checkIfValidInputs("nk", "sdf", "s", "s"));
+        assertEquals("password too short", logic.checkIfValidInputs("alice", "Alice", "sec", "sec"));
+        assertEquals("password and password confirmation do not match", logic.checkIfValidInputs("alice", "Alice", "secret1", "secre1"));
+    }
+    
+    @Test
+    public void checkIfValidInputsReturnsNullIfValidInputs() {
+        assertEquals(null, logic.checkIfValidInputs("alice", "Alice", "secret1", "secret1"));
+    }
 }
