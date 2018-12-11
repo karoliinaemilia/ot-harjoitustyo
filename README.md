@@ -8,6 +8,8 @@ Käyttäjä voi luoda sovellukseen käyttäjätunnuksen ja kirjauduttuaan sisä�
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/arkkitehtuuri.md)
