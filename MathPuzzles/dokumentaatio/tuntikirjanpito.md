@@ -9,5 +9,7 @@
 | 25.11 | 1 | pakkauskaavio |
 | 27.11 | 0.5 | pakkausten muuttelua ja käyttöliittymäjuttuja |
 | 2.12 | 4 | lisää toiminnallisuutta |
-| 3.12 | 1 | sekvenssikaavio ja testejä
-| yht | 17 |
+| 3.12 | 1 | sekvenssikaavio ja testejä |
+| 10.12 | 2 | käyttöohje ja arkkitehtuurikuvaus |
+| 11.12 | 2 | testejä ja refaktorointia |
+| yht | 21 |

@@ -8,6 +8,8 @@ Käyttäjä voi luoda sovellukseen käyttäjätunnuksen ja kirjauduttuaan sisä�
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/arkkitehtuuri.md)
@@ -37,6 +39,15 @@ mvn package
 ```
 
 jar-tiedosto _MathPuzzles-1.0-SNAPSHOT.jar_ löytyy sen jälkeen hakemistosta _target_
+
+### JavaDoc
+
+JavaDocin saa generoitua komennolla
+
+```
+mvn javadoc:javadoc
+```
+Sen voi katsoa avaamalla selaimella tiedosto _target/site/apidocs/index.html_
 
 ### Checkstyle
 
