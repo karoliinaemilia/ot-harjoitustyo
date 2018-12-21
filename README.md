@@ -6,6 +6,8 @@ Käyttäjä voi luoda sovellukseen käyttäjätunnuksen ja kirjauduttuaan sisä�
 
 [Viikko5](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/viikko5)
 
+[Viikko6](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/viikko6)
+
 ## Dokumentaatio
 
 [Käyttöohje](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kayttoohje.md)
