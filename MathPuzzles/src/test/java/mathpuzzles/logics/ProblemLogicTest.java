@@ -50,14 +50,23 @@ public class ProblemLogicTest {
     }
     
     @Test
-    public void checkIfValidNumbersReturnsTrueWithValidStrings() {
-        assertEquals(true, logic.checkIfValidNumbers("2", "45"));
+    public void checkIfValidNumbersReturnsNullWithValidStrings() {
+        assertEquals(null, logic.checkIfValidNumbers("2", "45"));
     }
     
     @Test
-    public void checkIfValidNumbersReturnsFalseWithInvalidStrings() {
-        assertEquals(false, logic.checkIfValidNumbers("2d", "gf"));
-        assertEquals(false, logic.checkIfValidNumbers("122", "12"));
+    public void checkIfValidNumbersReturnsCorrectStringWithInvalidStrings() {
+        assertEquals("The minimum and maximum should be numbers", logic.checkIfValidNumbers("2d", "gf"));
+        assertEquals("The minimum should be smaller than the maximum", logic.checkIfValidNumbers("122", "12"));
+        assertEquals("The numbers should be atleast 10 apart", logic.checkIfValidNumbers("23", "24"));
     }
     
+    @Test
+    public void getOperationFromComboBoxWorksCorrectly() {
+        assertEquals(Operation.DIVIDE, logic.getOperationFromComboBox("DIVISION"));
+        assertEquals(Operation.PLUS, logic.getOperationFromComboBox("ADDITION"));
+        assertEquals(Operation.MINUS, logic.getOperationFromComboBox("SUBTRACTION"));
+        assertEquals(Operation.MULTIPLY, logic.getOperationFromComboBox("MULTIPLICTION"));
+        assertEquals(null, logic.getOperationFromComboBox("ALL"));
+    }
 }

@@ -31,6 +31,8 @@ public class Database {
             Connection conn = DriverManager.getConnection(databaseAddress);
             Statement stmt = conn.createStatement();
             stmt.execute(createTableUser());
+            stmt = conn.createStatement();
+            stmt.execute(createTableRecord());
         } catch (Exception r) {
             
         }
@@ -47,6 +49,19 @@ public class Database {
                 + " name varchar(255),"
                 + " username varchar(20),"
                 + " password varchar(200));";
+    }
+    
+    /**
+     * Statement for Record table creation
+     * @return String for record table creation
+     */
+    public String createTableRecord() {
+        return "CREATE TABLE IF NOT EXISTS"
+                + " Record("
+                + " id integer PRIMARY KEY,"
+                + " time varchar(20),"
+                + " solved integer,"
+                + " username varchar(20));";
     }
     
 }

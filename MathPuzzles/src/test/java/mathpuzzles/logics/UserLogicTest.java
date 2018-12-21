@@ -28,7 +28,7 @@ public class UserLogicTest {
     
     @Test
     public void newUserCanBeCreatedWithUniqueUsername() throws SQLException {
-        when(userDao.findOne("tester2")).thenReturn(false);
+        when(userDao.findOne("tester2")).thenReturn(null);
         
         when(userDao.save(anyObject())).thenReturn(anyObject());
         
@@ -40,7 +40,7 @@ public class UserLogicTest {
     
     @Test
     public void newUserIsntCreatedWithSameUsername() throws SQLException {
-        when(userDao.findOne("tester")).thenReturn(true);
+        when(userDao.findOne("tester")).thenReturn(new User("tester", "Test", "secret"));
         when(userDao.save(user)).thenReturn(user);
         
         assertEquals(false, logic.createUser("Test", "tester", "secret"));

@@ -44,13 +44,30 @@ public class ProblemLogic {
      * @param number2 String form of second number
      * @return true if given strings are numbers
      */
-    public boolean checkIfValidNumbers(String number1, String number2) {
+    public String checkIfValidNumbers(String number1, String number2) {
         if (!StringUtils.isNumeric(number1) || !StringUtils.isNumeric(number2)) {
-            return false;
+            return "The minimum and maximum should be numbers";
         } else if (Integer.parseInt(number1) > Integer.parseInt(number2)) {
-            return false;
+            return "The minimum should be smaller than the maximum";
+        } else if (Math.abs(Integer.parseInt(number1) - Integer.parseInt(number2)) < 10) {
+            return "The numbers should be atleast 10 apart";
         }
         
-        return true;
+        return null;
+    }
+    
+    public Operation getOperationFromComboBox(String value) {
+        switch (value) {
+            case "ALL":
+                return null;
+            case "DIVISION":
+                return Operation.DIVIDE;
+            case "ADDITION":
+                return Operation.PLUS;
+            case "SUBTRACTION":
+                return Operation.MINUS;
+            default:
+                return Operation.MULTIPLY;
+        }
     }
 }

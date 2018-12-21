@@ -6,7 +6,7 @@ import java.util.Random;
  * Operations that can be used
  */
 public enum Operation {
-    DIVIDE, MULTIPLY, PLUS, MINUS, POWER;
+    DIVIDE, MULTIPLY, PLUS, MINUS;
 
     /**
      * Calculates the result for the numbers for specific operation
@@ -20,8 +20,6 @@ public enum Operation {
                 return Math.round(number1 / number2);
             case MULTIPLY:
                 return number1 * number2;
-            case POWER:
-                return (int) Math.pow((double) number1, (double) number2);
             case PLUS:
                 return number1 + number2;
             case MINUS:
@@ -40,8 +38,6 @@ public enum Operation {
                 return "/";
             case MULTIPLY:
                 return "*";
-            case POWER:
-                return "^";
             case PLUS:
                 return "+";
             case MINUS:
@@ -51,6 +47,10 @@ public enum Operation {
         return "+";
     }
 
+    /**
+     * Generates a random operation
+     * @return operation
+     */
     public static Operation getRandom() {
         int random = new Random().nextInt(Operation.values().length - 1);
         return Operation.values()[random];

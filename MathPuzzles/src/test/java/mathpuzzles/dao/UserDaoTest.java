@@ -26,6 +26,7 @@ public class UserDaoTest {
     public void setUp() throws SQLException {
         db = new Database("jdbc:sqlite:databaseForTests.db");
         userDao = new UserDao(db);
+        db.initializeDatabase();
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM User;");
         stmt.execute();
@@ -37,7 +38,7 @@ public class UserDaoTest {
     
     @Test
     public void oneCanBeFoundFromDatabaseByUsername() throws SQLException {
-        assertTrue(userDao.findOne("john"));
+        assertEquals(userDao.findOne("john").getName(), "John");
     }
     
     @Test
@@ -48,7 +49,7 @@ public class UserDaoTest {
     
     @Test
     public void nonExistingUserCannotBeFound() throws SQLException {
-        assertFalse(userDao.findOne("benjamin"));
+        assertEquals(userDao.findOne("benjamin"), null);
     }
     
     @Test
@@ -63,7 +64,7 @@ public class UserDaoTest {
         
         userDao.save(newUser);
         
-        assertTrue(userDao.findOne("alice"));
+        assertEquals(userDao.findOne("alice").getName(), "Alice");
     }
     
     

@@ -16,7 +16,7 @@ public interface Dao<T, K> {
      * @return The object from the database matching the key otherwise null
      * @throws SQLException if something fails at database level
      */
-    boolean findOne(K key) throws SQLException;
+    T findOne(K key) throws SQLException;
     
     /**
      * Returns a list of all objects of type T from the database

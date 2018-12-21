@@ -26,7 +26,7 @@ public class UserLogic {
      * @throws SQLException if something fails at database level
      */
     public boolean createUser(String name, String username, String password) throws SQLException {
-        if (userDao.findOne(username)) {
+        if (userDao.findOne(username) != null) {
             return false;
         }
 
@@ -35,7 +35,6 @@ public class UserLogic {
         try {
             userDao.save(user);
         } catch (SQLException e) {
-            System.out.println(e);
             return false;
         }
 
