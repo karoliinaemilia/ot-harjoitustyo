@@ -100,7 +100,7 @@ UserLogicin metodia createUser kutsutaan create-napin tapahtumankäsittelijäss�
 
 Käyttäjä syöttää tarvittavat parametrit ja painaa nappia _get_
 
-![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/sekvenssi.png)
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/ongelmaseq.png)
 
 Tapahtumankäsittelijä kutsuu ProblemLogicin metodia makeProblem ja antaa parametreiksi suurimman luvun, pienimmän luvun ja operaation tyypin. ProblemLogic kutsuu luokan ProblemGenerator metodia generateProblem joka luokan Operaatio avulla luo uuden ongelman jonka ProblemGenerator palauttaa ProblemLogicille. ProblemLogic muuttaa ongelman merkkijono muotoon ja käyttöliittymä näyttää sen renderöimässään ongelmaruudussa.
 
