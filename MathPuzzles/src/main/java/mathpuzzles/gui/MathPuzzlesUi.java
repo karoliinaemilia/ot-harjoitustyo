@@ -387,7 +387,7 @@ public class MathPuzzlesUi extends Application {
         Label timerLabel = new Label(secondsAtStart.toString());
         timerLabel.setTextFill(Color.RED);
         timerLabel.setStyle("-fx-font-size: 4em;");
-        Button button = new Button("Start");
+        Button startChallenge = new Button("Start");
 
         HBox problem = new HBox();
         challengeProblemLabel.setText(problemLogic.makeProblem(minValue, maxValue, operation));
@@ -424,11 +424,11 @@ public class MathPuzzlesUi extends Application {
             }
         });
 
-        button.setOnAction(e -> {
+        startChallenge.setOnAction(e -> {
             if (timeline != null) {
                 timeline.stop();
             }
-            button.setVisible(false);
+            startChallenge.setVisible(false);
             minValue = 2;
             maxValue = 20;
             operation = null;
@@ -440,13 +440,12 @@ public class MathPuzzlesUi extends Application {
             timerLabel.setText(seconds.toString());
             timeline = new Timeline();
             timeline.setCycleCount(Timeline.INDEFINITE);
-            timeline.getKeyFrames().add(
-                    new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
+            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
                         seconds--;
                         timerLabel.setText(seconds.toString());
                         if (seconds <= 0) {
                             timeline.stop();
-                            button.setVisible(true);
+                            startChallenge.setVisible(true);
                             problem.setVisible(false);
                             submit.setVisible(false);
                             skip.setVisible(false);
@@ -470,7 +469,7 @@ public class MathPuzzlesUi extends Application {
         problem.setVisible(false);
         submit.setVisible(false);
         skip.setVisible(false);
-        timer.getChildren().addAll(button, timerLabel);
+        timer.getChildren().addAll(startChallenge, timerLabel);
 
 
 
