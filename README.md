@@ -18,6 +18,8 @@ Käyttäjä voi luoda sovellukseen käyttäjätunnuksen ja kirjauduttuaan sisä�
 
 [Arkkitehtuurikuvaus](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/testaus.md)
+
 [Työaikakirjanpito](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/tuntikirjanpito.md)
 
 ### Testaaminen
