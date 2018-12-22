@@ -14,7 +14,7 @@ java -jar
 
 Sovellus avautuu kirjautumisruutuun
 
-(kirjatumiskuva)
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/kirjautumiskuva.png)
 
 Kirjautua voi antamalla oikea käyttäjätunnus ja salasana ja painamalla nappia _login_.
 
@@ -22,7 +22,7 @@ Kirjautua voi antamalla oikea käyttäjätunnus ja salasana ja painamalla nappia
 
 Kirjautumisnäkymästä voi siirtyä uuden käyttäjän luomiseen painamalla nappia _create new user_.
 
-(newuserkuva)
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/uusikayttajakuva.png)
 
 Uuden käyttäjän voi luoda syöttämällä tarvittavat tiedot kenttiin ja painamalla _create_.
 
@@ -35,7 +35,11 @@ Tämän jälkeen käyttäjä voi painaa nappia _get_.
 
 Painamalla nappia _logout_ käyttäjä kirjautuu ulos ja sovellus siirtyy takaisin kirjautumisnäkymään.
 
-(mainkuva)
+Käyttäjä voi myös valita haastemoodi jossa hän voi ratkaista ongelmia aikarajalla.
+
+Painamalla nappia records käyttäjä voi tarkastlla haastemoodin ennätyksiä
+
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/aloitusruutu.png)
 
 ## Laskujen ratkaiseminen
 
@@ -43,6 +47,22 @@ Kun käyttäjä on valinnut ongelmien tyypin hänet ohjataan tähän ruutuun rat
 
 Käyttäjä kirjoittaa ratkaisunsa ruutuun ja painaa _submit answer_. Sovellus kertoo sitten oliko vastaus oikein.
 
-(ongelmakuva)
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/ongelma.png)
 
 Painamalla nappia _next_ käyttäjä saa esiin uuden ongelman ja painamalla nappia _back to menu_ pääsee takakaisin aloitusruutuun.
+
+## Haaste
+
+Jos käyttäjä valitsee haastemoodin hänet ohjataan tähän ruutuun jossa hän voi aloittaa ratkaisemisen valitulla aikarajalla
+
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/haaste1.png)
+
+Painamalla nappia aloita ongelma tulee esiin ja aika lähtee käyntiin
+
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/haaste2.png)
+
+## Ennätykset
+
+Jos käyttäjä painaa nappia ennätykset hänet ohjataan tähän ruutuun jossa hän voi tarkastella ennätyksiä
+
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/ennatykset.png)
