@@ -6,7 +6,7 @@ Sovelluksen avulla käyttäjä voi ainakin harjoitella aritmetiikkaa.
 
 ## Käyttäjät
 
-Sovelluksella on yksi käyttäjärooli eli _normaali käyttäjä_.
+Sovelluksella on yksi käyttäjärooli, _normaali käyttäjä_.
 
 ## Perusversion tarjoama toiminnallisuus
 
