@@ -1,13 +1,13 @@
 # Käyttöohje
 
-Lataa tiedosto []()
+Lataa tiedosto [mathpuzzles.jar](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/download/loppupalautus/mathpuzzles.jar)
 
 ## Käynnistys
 
 Ohjelma käynnistetään komennolla
 
 ```
-java -jar
+java -jar mathpuzzles.jar
 ```
 
 ## Kirjautuminen sovellukseen
