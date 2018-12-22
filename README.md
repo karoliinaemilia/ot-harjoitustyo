@@ -4,6 +4,8 @@ K채ytt채j채 voi luoda sovellukseen k채ytt채j채tunnuksen ja kirjauduttuaan sis채�
 
 ## Releaset
 
+[Loppupalautus](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/loppupalautus)
+
 [Viikko5](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/viikko5)
 
 [Viikko6](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/viikko6)
@@ -15,6 +17,8 @@ K채ytt채j채 voi luoda sovellukseen k채ytt채j채tunnuksen ja kirjauduttuaan sis채�
 [Vaatimusm채채rittely](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/arkkitehtuuri.md)
+
+[Testausdokumentti](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/testaus.md)
 
 [Ty철aikakirjanpito](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/tuntikirjanpito.md)
 

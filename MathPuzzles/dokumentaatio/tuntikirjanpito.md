@@ -12,4 +12,7 @@
 | 3.12 | 1 | sekvenssikaavio ja testejä |
 | 10.12 | 2 | käyttöohje ja arkkitehtuurikuvaus |
 | 11.12 | 2 | testejä ja refaktorointia |
-| yht | 21 |
+| 20.12 | 5 | Record toiminnallisuutta |
+| 21.12 | 4 | Toiminnalisuutta ja testejä |
+| 22.12 | 4 | Dokumentointi |
+| yht | 34 |

@@ -4,9 +4,9 @@
 
 Ohjelman pakkausrakenne on seuraava
 
-![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/pakkauskaavioupdate.png)
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/pakkauskaavio3.png)
 
-Pakkaus _gui_ sisältää käyttöliittymän, _logics_ sisältää sovelluslogiikan, _domain_ logiikkojen käyttäät luokatt ja _dao_
+Pakkaus _gui_ sisältää käyttöliittymän, _logics_ sisältää sovelluslogiikan, _domain_ logiikkojen käyttämät luokat ja _dao_
 tietojen talletukseen liittyvät luokat.
 
 ## Käyttöliittymä
@@ -43,7 +43,7 @@ Sovelluslogiikasta vastaavat luokat käyttävät apunaan luokkia [User], [Record
 
 Ylläoleva pakkaus/luokkakaavio kuvaa luokkien suhteita.
 
-## Tietojen pysyiväistalletus
+## Tietojen pysyväistalletus
 
 Luokat RecordDao ja UserDao pakkauksessa mathpuzzles.dao vastaavat tietojen tallettamisesta tietokantaan.
 
@@ -81,10 +81,33 @@ ensin taas id sitten aikaraja jota ennätyksessä käytettiin, montako ratkaisti
 
 ### Kirjautuminen
 
+Kun käyttäjä on syöttänyt käyttäjätunnuksen ja salasanan ja painaa _login_ nappia tapahtuu seuraava: 
+
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/kirjautuminenseq.png)
+
+Eli napin painalluksesta vastaava tapahtumankäsittelijä kutsuu UserLogic-luokan metodia login ja antaa parametreiksi käyttäjätunnuksen ja salasanan. UserLogic selvittää onko käyttäjän antamat tiedot oikein eli onko käyttäjä olemassa
+UserDao-luokan avulla. Jos UserDao saa haettua käyttäjän tietokannasta palauttaa se sen UserLogicille joka viestii käyttöliittymälle että kirjautuminen on onnistunut ja käyttöliittymä renderöi aloitusruudun.
+
 ### Uuden käyttäjän luominen
+
+Kun käyttäjä on syöttänyt tarvittavat tiedot ja painaa nappia _create_
+
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/uusikayttajaseq.png)
+
+UserLogicin metodia createUser kutsutaan create-napin tapahtumankäsittelijässä ja sille annetaan parametreiksi nimen käyttäjätunnuksen ja salasanan. UserLogic selvittää, että onko käyttäjätunnus uniikki UserDaon avulla ja jos on niin tallentaa sen tietokantaan UserDaon avulla. Käyttöliittymä renderöi onnistuneen tallentamisen jälkeen kirjautumisruudun.
 
 ### Ongelman luominen
 
-![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/sekvenssi.png)
+Käyttäjä syöttää tarvittavat parametrit ja painaa nappia _get_
+
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/ongelmaseq.png)
+
+Tapahtumankäsittelijä kutsuu ProblemLogicin metodia makeProblem ja antaa parametreiksi suurimman luvun, pienimmän luvun ja operaation tyypin. ProblemLogic kutsuu luokan ProblemGenerator metodia generateProblem joka luokan Operaatio avulla luo uuden ongelman jonka ProblemGenerator palauttaa ProblemLogicille. ProblemLogic muuttaa ongelman merkkijono muotoon ja käyttöliittymä näyttää sen renderöimässään ongelmaruudussa.
 
 ### Ennätyksen luominen
+
+Kun käyttäjä pelaa haastemoodia hänen aloittaessaan tapahtuu seuraava
+
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/ennatysseq.png)
+
+Eli käyttäjän saadessa ongelma oikein käyttöliittymästä kutsutaan RecordLogicin metodia incrementAmount joka nostaa muuttujaa joka pitää kirjaa siitä montako ongelmaa käyttäjä on saanut oikein yhdellä. Kun aika on loppunut käyttöliittymästä kutsutaan RecordLogicin metodia setRecord ja sille annetaan parametriksi aika joka oli ongelmien ratkaisun rajana. RecordLogic tarkistaa RecordDaon avulla ettei käyttäjällä ole tismalleen samaa ennätystä jo ennestään ja jos ei ole niin uusi ennätys tallennetaan tietokantaan.
