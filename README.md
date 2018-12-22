@@ -4,6 +4,8 @@ K채ytt채j채 voi luoda sovellukseen k채ytt채j채tunnuksen ja kirjauduttuaan sis채�
 
 ## Releaset
 
+[Loppupalautus](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/loppupalautus)
+
 [Viikko5](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/viikko5)
 
 [Viikko6](https://github.com/karoliinaemilia/ot-harjoitustyo/releases/tag/viikko6)
