@@ -22,7 +22,7 @@ Dao-luokkia on testattu käyttämällä erillistä tietokantaa.
 
 Sovelluksen testauksen rivikattavuus on 95% ja haarautumakattavuus 80%, käyttöliittymäluokkaa lukuunottamatta.
 
-(testauskattavuuskuva)
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/testauskattavuus.png)
 
 ## Järjestelmätestaus
 
