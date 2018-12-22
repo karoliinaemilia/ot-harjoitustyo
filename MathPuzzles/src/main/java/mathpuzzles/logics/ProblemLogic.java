@@ -47,10 +47,12 @@ public class ProblemLogic {
     public String checkIfValidNumbers(String number1, String number2) {
         if (!StringUtils.isNumeric(number1) || !StringUtils.isNumeric(number2)) {
             return "The minimum and maximum should be numbers";
+        } else if (Long.parseLong(number1) > 1000000 || Long.parseLong(number2) > 1000000){
+            return "One of the numbers is too high";
         } else if (Integer.parseInt(number1) > Integer.parseInt(number2)) {
             return "The minimum should be smaller than the maximum";
-        } else if (Math.abs(Integer.parseInt(number1) - Integer.parseInt(number2)) < 10) {
-            return "The numbers should be atleast 10 apart";
+        } else if (Math.abs(Integer.parseInt(number1) - Integer.parseInt(number2)) < 20) {
+            return "The numbers should be atleast 20 apart";
         }
         
         return null;

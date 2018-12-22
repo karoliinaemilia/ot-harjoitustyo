@@ -55,9 +55,9 @@ public class MathPuzzlesUi extends Application {
     private Label problemLabel = new Label("");
     private Label challengeProblemLabel = new Label("");
     private Operation operation = null;
-    Timeline timeline;
-    Integer seconds = 60;
-    Integer secondsAtStart = 0;
+    private Timeline timeline;
+    private Integer seconds = 60;
+    private Integer secondsAtStart = 0;
 
     @Override
     public void init() throws Exception {
@@ -264,8 +264,8 @@ public class MathPuzzlesUi extends Application {
             if (comboBox.getSelectionModel().isEmpty()) {
                 errorMessage.setText("Select operation type");
             } else if (problemLogic.checkIfValidNumbers(minValueInput.getText(), maxValueInput.getText()) == null) {
-                this.maxValue = Integer.parseInt(maxValueInput.getText());
-                this.minValue = Integer.parseInt(minValueInput.getText());
+                maxValue = Integer.parseInt(maxValueInput.getText());
+                minValue = Integer.parseInt(minValueInput.getText());
                 maxValueInput.setText("");
                 minValueInput.setText("");
                 this.operation = problemLogic.getOperationFromComboBox((String) comboBox.getValue());
@@ -273,10 +273,9 @@ public class MathPuzzlesUi extends Application {
                 errorMessage.setText("");
                 primaryStage.setScene(problemScene);
             } else {
-                maxValueInput.setText("");
-                minValueInput.setText("");
                 errorMessage.setText(problemLogic.checkIfValidNumbers(minValueInput.getText(), maxValueInput.getText()));
-                
+                maxValueInput.setText("");
+                minValueInput.setText("");  
             }
 
         });

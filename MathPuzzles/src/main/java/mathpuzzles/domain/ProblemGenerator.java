@@ -53,8 +53,8 @@ public class ProblemGenerator {
     public static Problem generateNumbers(Problem problem) {
         Random rand = new Random();
 
-        int firstNumber = rand.nextInt(problem.getMaxValue() - 1) + problem.getMinValue();
-        int secondNumber = rand.nextInt(problem.getMaxValue() - 1) + problem.getMinValue();
+        int firstNumber = rand.nextInt(problem.getMaxValue() - problem.getMinValue() + 1) + problem.getMinValue();
+        int secondNumber = rand.nextInt(problem.getMaxValue() - problem.getMinValue() + 1) + problem.getMinValue();
 
         problem.setNumber1(firstNumber);
         problem.setNumber2(secondNumber);
@@ -76,7 +76,7 @@ public class ProblemGenerator {
                 problem.setNumber2(helper);
             }
             if (problem.getNumber1() % problem.getNumber2() != 0 || problem.getNumber1() == problem.getNumber2()) {
-                problem.setNumber1(rand.nextInt(problem.getMaxValue() - 1) + problem.getMinValue());
+                problem.setNumber1(rand.nextInt(problem.getMaxValue() - problem.getMinValue() + 1) + problem.getMinValue());
             } else {
                 break;
             }

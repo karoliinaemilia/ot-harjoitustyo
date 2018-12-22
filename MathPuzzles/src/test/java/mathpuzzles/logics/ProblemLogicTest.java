@@ -58,7 +58,8 @@ public class ProblemLogicTest {
     public void checkIfValidNumbersReturnsCorrectStringWithInvalidStrings() {
         assertEquals("The minimum and maximum should be numbers", logic.checkIfValidNumbers("2d", "gf"));
         assertEquals("The minimum should be smaller than the maximum", logic.checkIfValidNumbers("122", "12"));
-        assertEquals("The numbers should be atleast 10 apart", logic.checkIfValidNumbers("23", "24"));
+        assertEquals("The numbers should be atleast 20 apart", logic.checkIfValidNumbers("23", "24"));
+        assertEquals("One of the numbers is too high", logic.checkIfValidNumbers("986543456", "876545678"));
     }
     
     @Test
