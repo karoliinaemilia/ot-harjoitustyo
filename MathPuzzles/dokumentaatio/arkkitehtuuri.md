@@ -4,9 +4,9 @@
 
 Ohjelman pakkausrakenne on seuraava
 
-![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/pakkauskaavioupdate.png)
+![](https://github.com/karoliinaemilia/ot-harjoitustyo/blob/master/MathPuzzles/dokumentaatio/kuvat/pakkauskaavio3.png)
 
-Pakkaus _gui_ sisältää käyttöliittymän, _logics_ sisältää sovelluslogiikan, _domain_ logiikkojen käyttäät luokatt ja _dao_
+Pakkaus _gui_ sisältää käyttöliittymän, _logics_ sisältää sovelluslogiikan, _domain_ logiikkojen käyttämät luokat ja _dao_
 tietojen talletukseen liittyvät luokat.
 
 ## Käyttöliittymä
@@ -43,7 +43,7 @@ Sovelluslogiikasta vastaavat luokat käyttävät apunaan luokkia [User], [Record
 
 Ylläoleva pakkaus/luokkakaavio kuvaa luokkien suhteita.
 
-## Tietojen pysyiväistalletus
+## Tietojen pysyväistalletus
 
 Luokat RecordDao ja UserDao pakkauksessa mathpuzzles.dao vastaavat tietojen tallettamisesta tietokantaan.
 
